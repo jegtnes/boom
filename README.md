@@ -1,6 +1,4 @@
-Package created using [generator-atom-package][npm].
+# Boom
 
-Find more information concerning Atom package creation [here][atom-doc].
-
-[npm]: https://www.npmjs.org/package/generator-atom-package
-[atom-doc]: https://atom.io/docs/latest/creating-a-package "Official documentation"
+An Atom package to run Pow commands through Powder. Requires you to have both
+Pow and Powder installed.
