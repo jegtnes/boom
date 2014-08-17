@@ -2,8 +2,10 @@
 # This file is the entry point of your package. It will be loaded once as a
 # singleton.
 #
-# For more information: https://atom.io/docs/latest/creating-a-package#source-code
+# More information: https://atom.io/docs/latest/creating-a-package#source-code
 ###
+
+exec = require("child_process").exec
 
 module.exports =
 
@@ -14,8 +16,13 @@ module.exports =
   # your package is started (like setting up DOM elements or binding events).
   ###
   activate: (state) ->
-    console.log 'activate(state)'
-    console.log state
+    puts = (error, stdout, stderr) ->
+      if error
+        console.log "You do not have Powder installed"
+      else
+        console.log "Powder is installed"
+    exec = require("child_process").exec
+    exec "powder", puts
 
     workspace = atom.workspaceView
     workspace.command 'boom:toggleBackground', =>
@@ -45,7 +52,3 @@ module.exports =
   # element.
   ###
   toggleBackground: ->
-    console.log 'toggleBackground()'
-
-    workspace = atom.workspaceView
-    workspace.find('.item-views > .editor > .scroll-view').toggleClass 'yeoman'
